@@ -51,7 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
+%dir %{perl_vendorarch}/JavaScript/Minifier
 %{perl_vendorarch}/JavaScript/Minifier/*.pm
+%dir %{perl_vendorarch}/auto/JavaScript/Minifier
 %dir %{perl_vendorarch}/auto/JavaScript/Minifier/XS
 %{perl_vendorarch}/auto/JavaScript/Minifier/XS/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/JavaScript/Minifier/XS/*.so

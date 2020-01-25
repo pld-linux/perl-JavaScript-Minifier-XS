@@ -4,7 +4,6 @@
 #
 %define		pdir	JavaScript
 %define		pnam	Minifier-XS
-%include	/usr/lib/rpm/macros.perl
 Summary:	JavaScript::Minifier::XS - XS based JavaScript minifier
 Name:		perl-JavaScript-Minifier-XS
 Version:	0.11

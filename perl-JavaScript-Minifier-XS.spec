@@ -6,12 +6,12 @@
 %define		pnam	Minifier-XS
 Summary:	JavaScript::Minifier::XS - XS based JavaScript minifier
 Name:		perl-JavaScript-Minifier-XS
-Version:	0.11
-Release:	9
+Version:	0.15
+Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/JavaScript/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	bd8544287ecd1b651367295485f4a5b0
+# Source0-md5:	8e6c47724ba99014f625ef9c111099c3
 URL:		http://search.cpan.org/dist/JavaScript-Minifier-XS/
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -31,18 +31,17 @@ and not just pure Perl.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	config=optimize='%{rpmcflags}' \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+        INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} install \
+    DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,6 +53,5 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/JavaScript/Minifier/*.pm
 %dir %{perl_vendorarch}/auto/JavaScript/Minifier
 %dir %{perl_vendorarch}/auto/JavaScript/Minifier/XS
-%{perl_vendorarch}/auto/JavaScript/Minifier/XS/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/JavaScript/Minifier/XS/*.so
 %{_mandir}/man3/*

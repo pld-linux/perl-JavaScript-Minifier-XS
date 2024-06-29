@@ -7,7 +7,7 @@
 Summary:	JavaScript::Minifier::XS - XS based JavaScript minifier
 Name:		perl-JavaScript-Minifier-XS
 Version:	0.15
-Release:	2
+Release:	3
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/JavaScript/%{pdir}-%{pnam}-%{version}.tar.gz
